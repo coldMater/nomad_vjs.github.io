@@ -1,6 +1,7 @@
 const nameHtml = document.querySelector(".name");
 
 function handleSubmitName(e) {
+    e.preventDefault();
     localStorage.setItem("name", e.target[0].value);
     const name = localStorage.getItem("name");
     const nameWrapper = document.createElement("div");
@@ -9,6 +10,7 @@ function handleSubmitName(e) {
     nameDesc.innerText = `Welcome ${localStorage.getItem("name")}`;
 
     nameWrapper.append(nameDesc);
+    nameHtml.removeChild(nameHtml.firstChild);
     nameHtml.append(nameWrapper);
 }
 
